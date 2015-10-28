@@ -24,6 +24,8 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
            if os.path.isfile(team+".def"):
                ff = open(team+".def", "r")
                deff=ff.readline().count('+');
+               deffminus = ff.readline().count('-')
+               deff -= deffminus
                ff.close();
            if os.path.isfile(team+".off"):
                ff = open(team+".off", "r")
