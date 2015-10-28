@@ -38,15 +38,17 @@ for team in teams:
             ff.write(flag+"\n")
             ff.close()
 time.sleep(5)
+print "updating def points"
 for team in teams:
     ff = open(team+"My.flag", "r")
     flag=ff.readlines()[-1:][0][:-1]
     ff.close()
     if trololol_get.trololol_get(team,flag):
+        print "team " + str(team) + " won a defence point!"
         ff = open(team+".def", "a")
         ff.write("+")
         ff.close()
     else:
         ff = open(team+".def", "a")
         ff.write("-")
-        f.close()
+        ff.close()

@@ -9,12 +9,13 @@ import re
 HTTPORT=":80"
 BASEDIR="/"
 def trololol_get(ip,flag):
-    s=requests.session()
+    print "trololol get " + ip
     s = requests.session()
     file = open(flag+'.data', 'r')
     token = file.read(10)
     payload = {'id': token}
     res = s.post("http://" + ip + HTTPORT + BASEDIR, data=payload)
+    print "result " + res
     if(flag in res.text):
         print "worked";
         return True;
