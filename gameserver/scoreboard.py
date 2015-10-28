@@ -29,9 +29,9 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
                ff.close();
            if os.path.isfile(team+".off"):
                ff = open(team+".off", "r")
-               off=ff.readline().count('+');
-               ff.close();
-           self.request.send(team+"|"+str(off)+"|"+str(deff)+"\n")
+               off=ff.readline().count('+')
+               ff.close()
+               self.request.send(team+"|"+str(off)+"|"+str(deff)+"\n")
            
 
 if __name__ == "__main__":
