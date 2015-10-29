@@ -20,11 +20,6 @@ class scoreboardThread(threading.Thread):
         print "scoreboard starting..."
         scoreboard.scoreboard(9990)
 
-    def stop(self):
-        print "Stopping scoreboard!"
-        self.stop()
-
-
 class submitThread(threading.Thread):
     def __init__(self, threadID, name):
         threading.Thread.__init__(self)
@@ -34,10 +29,6 @@ class submitThread(threading.Thread):
     def run(self):
         print "submit server starting..."
         submitserver.submitserver(9999)
-
-    def stop(self):
-        print "Stopping submit server!"
-        self.__stop()
 
 
 ##
@@ -98,22 +89,18 @@ def createTeamFiles():
 submit_thread = submitThread(1, "submit_thread")
 scoreboard_thread = scoreboardThread(2, "scoreboard_thread")
 
+submit_thread.daemon = True
+scoreboard_thread.daemon = True
+
 submit_thread.start()
 scoreboard_thread.start()
 
 #update gameserver every minute
 while True:
-    try:
-        createTeamFiles()
+    createTeamFiles()
 
-        PlaceTrolololFlags()
+    PlaceTrolololFlags()
 
-        time.sleep(60)
+    time.sleep(60)
 
-        updateDefencePoints()
-
-    except KeyboardInterrupt:
-        print "Stopping threads..."
-        scoreboard_thread.stop()
-        submit_thread.stop()
-
+    updateDefencePoints()
