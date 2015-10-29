@@ -34,12 +34,11 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
                self.request.send(team+"|"+str(off)+"|"+str(deff)+"\n")
            
 
-if __name__ == "__main__":
-    HOST, PORT = "0.0.0.0", 9990
-
+def scoreboard(PORT):
+    HOST= "0.0.0.0"
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
-
+    print "scoreboard started on port " + str(PORT) + "\n"
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
     server.serve_forever()

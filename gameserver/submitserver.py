@@ -28,12 +28,12 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
         print flag
         
 
-if __name__ == "__main__":
-    HOST, PORT = "0.0.0.0", 9999
+def submitserver(port):
+    HOST, PORT = "0.0.0.0", port
 
     # Create the server, binding to localhost on port 9999
     server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
-
+    print "Starting submit server on port " + str(PORT) + "\n"
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
     server.serve_forever()
