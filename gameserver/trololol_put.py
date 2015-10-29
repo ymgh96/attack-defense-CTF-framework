@@ -17,7 +17,6 @@ def trololol_put(ip,flag):
     print url
     res = s.post(url, data=payload)
     of = open(flag+'.data', 'w')
-    print "put res " + res.text[-10:]
     of.write(res.text[-10:])
     of.close()
 

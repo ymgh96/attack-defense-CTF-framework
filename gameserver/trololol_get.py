@@ -15,7 +15,6 @@ def trololol_get(ip,flag):
     token = file.read(10)
     payload = {'id': token}
     res = s.post("http://" + ip + HTTPORT + BASEDIR, data=payload)
-    print "result " + res
     if(flag in res.text):
         print "worked";
         return True;
