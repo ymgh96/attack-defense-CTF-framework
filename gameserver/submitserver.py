@@ -2,30 +2,38 @@
 import SocketServer
 
 class MyTCPHandler(SocketServer.BaseRequestHandler):
-    """
-    The RequestHandler class for our server.
-
-    It is instantiated once per connection to the server, and must
-    override the handle() method to implement communication to the
-    client.
-    """
 
     def handle(self):
         self.request.send("please send us your team ip\n")
         team = self.request.recv(1024).strip()
         self.request.send("please send us the flag\n")
         flag = self.request.recv(1024).strip()
+
         ff = open(team+"My.flag", "r")
         flags=[]
+
         for flag in ff.readlines():
             flags.append(flag)
-        if flag in flags:
-            ff = open(team+".off", "a")
-            ff.write("+")
-            ff.close()
-            self.request.send("scored")
         ff.close()
-        print flag
+
+        if flag in flags:
+
+            sff = open(team+".found","r")
+            foundFlags = sff.readlines()
+
+            if flag in foundFlags:
+                print "Already scored on flag!"
+            else:
+                # Write flag in teams found flag file
+                sff.close()
+                sff = open(team+".found","a")
+                sff.write(flag+"\n")
+                sff.close()
+                # Add a score
+                ff = open(team+".off", "a")
+                ff.write("+")
+                ff.close()
+                self.request.send("scored")
         
 
 def submitserver(port):
