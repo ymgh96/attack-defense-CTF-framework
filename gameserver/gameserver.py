@@ -101,6 +101,6 @@ while True:
 
     PlaceTrolololFlags()
 
-    time.sleep(60)
+    time.sleep(30)
 
     updateDefencePoints()
