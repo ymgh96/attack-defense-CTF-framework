@@ -3,12 +3,12 @@ import random
 import string
 import time
 import threading
+import sys
 
 import trololol_put
 import trololol_get
 import scoreboard
 import submitserver
-
 
 class scoreboardThread(threading.Thread):
     def __init__(self, threadID, name):
@@ -20,6 +20,10 @@ class scoreboardThread(threading.Thread):
         print "scoreboard starting..."
         scoreboard.scoreboard(9990)
 
+    def stop(self):
+        print "Stopping scoreboard!"
+        self.stop()
+
 
 class submitThread(threading.Thread):
     def __init__(self, threadID, name):
@@ -30,6 +34,10 @@ class submitThread(threading.Thread):
     def run(self):
         print "submit server starting..."
         submitserver.submitserver(9999)
+
+    def stop(self):
+        print "Stopping submit server!"
+        self.__stop()
 
 
 ##
@@ -95,10 +103,17 @@ scoreboard_thread.start()
 
 #update gameserver every minute
 while True:
-    createTeamFiles()
+    try:
+        createTeamFiles()
 
-    PlaceTrolololFlags()
+        PlaceTrolololFlags()
 
-    time.sleep(60)
+        time.sleep(60)
 
-    updateDefencePoints()
+        updateDefencePoints()
+
+    except KeyboardInterrupt:
+        print "Stopping threads..."
+        scoreboard_thread.stop()
+        submit_thread.stop()
+
