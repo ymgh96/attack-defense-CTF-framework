@@ -83,26 +83,29 @@ def createTeamFiles():
         ff = open(team[:-1] + "My.flag", "a")
         ff.close()
 
+def main():
+    # Make threads for submitserver and scoreboard
+    submit_server_thread = submitThread(1, "submit_thread")
+    scoreboard_server_thread = scoreboardThread(2, "scoreboard_thread")
 
-# Make threads for submitserver and scoreboard
-submit_server_thread = submitThread(1, "submit_thread")
-scoreboard_server_thread = scoreboardThread(2, "scoreboard_thread")
+    submit_server_thread.daemon = True
+    scoreboard_server_thread.daemon = True
 
-submit_server_thread.daemon = True
-scoreboard_server_thread.daemon = True
+    submit_server_thread.start()
+    scoreboard_server_thread.start()
 
-submit_server_thread.start()
-scoreboard_server_thread.start()
+    #update gameserver every $time seconds
+    try:
+        while True:
+            createTeamFiles()
 
-#update gameserver every $time seconds
-try:
-    while True:
-        createTeamFiles()
+            PlaceTrolololFlags()
 
-        PlaceTrolololFlags()
+            time.sleep(30)
 
-        time.sleep(30)
+            updateDefencePoints()
+    except KeyboardInterrupt:
+        print "Shutting down..."
 
-        updateDefencePoints()
-except KeyboardInterrupt:
-    print "Shutting down..."
+if __name__ == "__main__":
+    main()
