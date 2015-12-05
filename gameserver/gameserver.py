@@ -3,7 +3,6 @@ import random
 import string
 import time
 import threading
-import sys
 
 import trololol_put
 import trololol_get
@@ -30,15 +29,12 @@ class submitThread(threading.Thread):
         submitserver.submitserver(9999)
 
 
-##
-# Get random string
-##
 def randomString(n):
     return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(n))
 
 
 def updateDefencePoints():
-    global team, ff, flag
+    global team
     print "updating def points"
     for team in teams:
         ff = open(team + "My.flag", "r")
@@ -56,7 +52,7 @@ def updateDefencePoints():
 
 
 def PlaceTrolololFlags():
-    global team, flag, ff
+    global team
     for team in teams:
         print team
         m = hashlib.md5()
@@ -75,7 +71,7 @@ def PlaceTrolololFlags():
 
 
 def createTeamFiles():
-    global teams, team, ff
+    global teams
     fo = open("teams.list", "r")
     teams = []
     for team in fo.readlines():
@@ -83,29 +79,37 @@ def createTeamFiles():
         ff = open(team[:-1] + "My.flag", "a")
         ff.close()
 
-def main():
+
+def start_server_threads():
     # Make threads for submitserver and scoreboard
     submit_server_thread = submitThread(1, "submit_thread")
     scoreboard_server_thread = scoreboardThread(2, "scoreboard_thread")
-
     submit_server_thread.daemon = True
     scoreboard_server_thread.daemon = True
-
     submit_server_thread.start()
     scoreboard_server_thread.start()
 
-    #update gameserver every $time seconds
+
+def main():
+    start_server_threads()
+
+    createTeamFiles()
+
+    #update gameserver every n seconds
     try:
         while True:
-            createTeamFiles()
 
             PlaceTrolololFlags()
 
             time.sleep(30)
 
             updateDefencePoints()
+
     except KeyboardInterrupt:
         print "Shutting down..."
+
+
+
 
 if __name__ == "__main__":
     main()
