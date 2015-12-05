@@ -1,16 +1,15 @@
-
 import hashlib
-import os
 import random
-import string
-import time
-import threading
 import re
+import string
+import threading
+import time
 
-import trololol_put
-import trololol_get
 import scoreboard
 import submitserver
+import trololol_get
+import trololol_put
+
 
 class scoreboardThread(threading.Thread):
     def __init__(self, threadID, name):
@@ -76,9 +75,8 @@ def PlaceTrolololFlags():
 def read_team_files():
     global teams
 
-    ip4 = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
+    ip4 = re.compile("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
 
-    fo = open("teams.list", "r")
     teams = []
 
     # Read times config file and append IP adress to teams array if it's valid.
@@ -87,7 +85,7 @@ def read_team_files():
             if ip4.match(team) is not None:
                 teams.append(team[:-1])
                 ff = open(team[:-1] + "My.flag", "a")
-                ff.cose()
+                ff.close();
             else:
                 print "[WARNING] " + team + " is not a valid IPv4 adress! team is excluded from CTF!"
 
