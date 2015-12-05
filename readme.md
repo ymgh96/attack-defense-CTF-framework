@@ -1,20 +1,20 @@
-attack & defanse CTF demo
+attack & defense CTF demo
 ==========================
-this project contains a minimalistic attack and defanse CTF setup with exectlly one service
+this project contains a minimalistic attack and defense CTF setup with exactly one service
 
 Vulnbox
 -------------------------
 
 To setup the Vulnbox just setup an linux VM with an LAMPP stack and place the index.php in the root directory.
 
-the Service has 2 vulnabilties. One is a secret backdoor in line 51 to show that some services have unused functionality. The fix for this ist just to remove the functionallity. the next one is the missing prepared statments in line 65. This vulnability realy need to be fixed.
+the Service has 2 vulnabilities. One is a secret backdoor in line 51 to show that some services have unused functionality. The fix for this ist just to remove the functionallity. the next one is the missing prepared statments in line 65. This vulnability realy need to be fixed.
 
 Gameserver
 ---------------------------
 
-The gameserver has multiple components. the first thing you shuld do is add all IPs of the vulnboxes to your teams.list. Atenttion! since this si just for demonstration please only insert IPs from up and running vulnboxes!
+The gameserver has multiple components. the first thing you should do is add all IPs of the vulnboxes to your teams.list. attention! since this is just for demonstration please only insert IPs from up and running vulnboxes!
 
-the submitterserver.py is the component that recives the flags. you just have to start it and it should do all the magic for you. the server should run on port 9999.
+the submitserver.py is the component that recives the flags. you just have to start it and it should do all the magic for you. the server should run on port 9999.
 
 the scoreboard.py delivers via nc the current status of the game. you just have to start it and it should do all the magic for you. the server should run on port 9990.
 
