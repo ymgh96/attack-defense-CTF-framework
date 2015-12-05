@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0af287b3-9b42-491e-987f-b5788018d773" name="Default" comment="">
+    <list default="true" id="0af287b3-9b42-491e-987f-b5788018d773" name="Default" comment="Updated regex to a more complex but complete version">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gameserver/gameserver.py" afterPath="$PROJECT_DIR$/gameserver/gameserver.py" />
     </list>
@@ -37,16 +37,22 @@
       <file leaf-file-name="gameserver.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gameserver/gameserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28183362">
-              <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.5408163">
+              <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
               <folding>
-                <element signature="e#1#15#0" expanded="true" />
-                <element signature="e#219#446#0" expanded="false" />
-                <element signature="e#490#725#0" expanded="false" />
-                <element signature="e#889#1368#0" expanded="false" />
-                <element signature="e#1401#1911#0" expanded="false" />
-                <element signature="e#2571#2901#0" expanded="false" />
+                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#894#1373#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teams.list" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gameserver/teams.list">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +61,10 @@
         <entry file="file://$PROJECT_DIR$/gameserver/scoreboard.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-              <folding />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#116#1063#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,8 +91,8 @@
         <option value="$PROJECT_DIR$/../attack-defense-CTF-demo/gameserver/submitserver.py" />
         <option value="$PROJECT_DIR$/../attack-defense-CTF-demo/gameserver/scoreboard.py" />
         <option value="$PROJECT_DIR$/../attack-defense-CTF-demo/gameserver/gameserver.py" />
-        <option value="$PROJECT_DIR$/gameserver/gameserver.py" />
         <option value="$PROJECT_DIR$/gameserver/teams.list" />
+        <option value="$PROJECT_DIR$/gameserver/gameserver.py" />
       </list>
     </option>
   </component>
@@ -516,7 +524,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449334458967</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Updated regex to a more complex but complete version">
+      <created>1449334765666</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1449334765666</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -533,13 +547,13 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12025317" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.4957806" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.49367088" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864866" sideWeight="0.5042194" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5063291" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.4957806" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.4978903" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.4957806" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20216216" sideWeight="0.48734176" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864866" sideWeight="0.4957806" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.49367088" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864866" sideWeight="0.4957806" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -584,11 +598,13 @@
     <MESSAGE value="Added Main method" />
     <MESSAGE value="Renamed project." />
     <MESSAGE value="Warning will be shown when an IPv4 adress is invalid inside the teams.list file in the gameserver directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Warning will be shown when an IPv4 adress is invalid inside the teams.list file in the gameserver directory" />
+    <MESSAGE value="Updated regex to a more complex but complete version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated regex to a more complex but complete version" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -606,12 +622,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,29 +632,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameserver/submitserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameserver/gameserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#116#1063#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -660,12 +651,27 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameserver/submitserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameserver/gameserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -697,12 +703,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,12 +743,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,12 +783,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -856,8 +850,10 @@
     <entry file="file://$PROJECT_DIR$/gameserver/scoreboard.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
-          <folding />
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#116#1063#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -871,15 +867,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gameserver/gameserver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28183362">
-          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.5408163">
+          <caret line="111" column="53" selection-start-line="111" selection-start-column="53" selection-end-line="111" selection-end-column="53" />
           <folding>
-            <element signature="e#1#15#0" expanded="true" />
-            <element signature="e#219#446#0" expanded="false" />
-            <element signature="e#490#725#0" expanded="false" />
-            <element signature="e#889#1368#0" expanded="false" />
-            <element signature="e#1401#1911#0" expanded="false" />
-            <element signature="e#2571#2901#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#894#1373#0" expanded="false" />
           </folding>
         </state>
       </provider>

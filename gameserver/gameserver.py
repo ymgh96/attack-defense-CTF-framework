@@ -1,4 +1,5 @@
 import hashlib
+import os
 import random
 import re
 import string
@@ -35,7 +36,7 @@ def randomString(n):
     return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(n))
 
 
-def updateDefencePoints():
+def updateDefencePoints(teams):
     global team
     print "updating def points"
     for team in teams:
@@ -53,7 +54,7 @@ def updateDefencePoints():
             ff.close()
 
 
-def PlaceTrolololFlags():
+def PlaceTrolololFlags(teams):
     global team
     for team in teams:
         print team
@@ -72,27 +73,49 @@ def PlaceTrolololFlags():
                 ff.close()
 
 
-def read_team_files():
-    global teams
-
+def read_team_files(teams):
+    """
+    opens teams.list and filters out valid ips from that list. Adds valid ip to team list
+    Also makes a ipMY.flag file for each valid team.
+    :param teams: list of teams ip adresses
+    :return:
+    """
     ip4 = re.compile("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
 
-    teams = []
-
-    # Read times config file and append IP adress to teams array if it's valid.
     with open("teams.list", "r") as t:
         for team in t.read().splitlines():
             if ip4.match(team) is not None:
-                teams.append(team[:-1])
-                ff = open(team[:-1] + "My.flag", "a")
+                teams.append(team)
+                ff = open(team + "My.flag", "a")
                 ff.close();
+                print "[MESSAGE] Added " + team + " succesfully!"
             else:
                 print "[WARNING] " + team + " is not a valid IPv4 adress! team is excluded from CTF!"
 
 
+def check_teams_online(teams):
+    """
+    if a team is offline, a d gets appended to the end of the ip adress.
+    other functions then skip this ip. and this ip will not get any defence or attack points.
+    :param teams: list of team ip
+    """
+    for ip in teams:
+        response = os.system("ping -q -c 1 -W 2 " + ip)
+        if response != 0:
+            print "[WARNING] " + ip + " is offline! Remove the device from the team list? [y] "
+            inp = raw_input().lower()
+
+            if inp in ('y', 'ye', 'yes', ''):
+                teams.remove(ip)
+                print "[MESSAGE] " + ip + " removed from active team list"
+            else:
+                print "[MESSAGE] " + ip + " disabled"
+
 
 def start_server_threads():
-    # Make threads for submitserver and scoreboard
+    """
+    Make daemon for submitserver and scoreboard
+    """
     submit_server_thread = submitThread(1, "submit_thread")
     scoreboard_server_thread = scoreboardThread(2, "scoreboard_thread")
     submit_server_thread.daemon = True
@@ -102,19 +125,20 @@ def start_server_threads():
 
 
 def main():
-    start_server_threads()
-
-    read_team_files()
-
-    #update gameserver every n seconds
     try:
+        teams = []
+        read_team_files(teams)
+        check_teams_online(teams)
+        start_server_threads()
+
+    # update gameserver every n seconds
         while True:
 
-            PlaceTrolololFlags()
+            PlaceTrolololFlags(teams)
 
             time.sleep(30)
 
-            updateDefencePoints()
+            updateDefencePoints(teams)
 
     except KeyboardInterrupt:
         print "Shutting down..."
