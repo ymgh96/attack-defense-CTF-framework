@@ -1,8 +1,11 @@
+
 import hashlib
+import os
 import random
 import string
 import time
 import threading
+import re
 
 import trololol_put
 import trololol_get
@@ -70,14 +73,24 @@ def PlaceTrolololFlags():
                 ff.close()
 
 
-def createTeamFiles():
+def read_team_files():
     global teams
+
+    ip4 = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
+
     fo = open("teams.list", "r")
     teams = []
-    for team in fo.readlines():
-        teams.append(team[:-1])
-        ff = open(team[:-1] + "My.flag", "a")
-        ff.close()
+
+    # Read times config file and append IP adress to teams array if it's valid.
+    with open("teams.list", "r") as t:
+        for team in t.read().splitlines():
+            if ip4.match(team) is not None:
+                teams.append(team[:-1])
+                ff = open(team[:-1] + "My.flag", "a")
+                ff.cose()
+            else:
+                print "[WARNING] " + team + " is not a valid IPv4 adress! team is excluded from CTF!"
+
 
 
 def start_server_threads():
@@ -93,7 +106,7 @@ def start_server_threads():
 def main():
     start_server_threads()
 
-    createTeamFiles()
+    read_team_files()
 
     #update gameserver every n seconds
     try:
