@@ -86,9 +86,7 @@ def read_team_files(teams):
         for team in t.read().splitlines():
             if ip4.match(team) is not None:
                 teams.append(team)
-                ff = open(team + "My.flag", "a")
-                ff.close();
-                print "[MESSAGE] Added " + team + " succesfully!"
+
             else:
                 print "[WARNING] " + team + " is not a valid IPv4 adress! team is excluded from CTF!"
 
@@ -109,8 +107,14 @@ def check_teams_online(teams):
                 teams.remove(ip)
                 print "[MESSAGE] " + ip + " removed from active team list"
             else:
+                # TODO: Actualy disable the team
                 print "[MESSAGE] " + ip + " disabled"
 
+def write_team_files(teams):
+    for team in teams:
+        ff = open(team + "My.flag", "a")
+        ff.close();
+        print "[MESSAGE] Added " + team + " succesfully!"
 
 def start_server_threads():
     """
@@ -129,6 +133,7 @@ def main():
         teams = []
         read_team_files(teams)
         check_teams_online(teams)
+        write_team_files(teams)
         start_server_threads()
 
     # update gameserver every n seconds
