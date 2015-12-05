@@ -1,7 +1,7 @@
 #!/usr/bin/env python 
 import SocketServer
 
-class MyTCPHandler(SocketServer.BaseRequestHandler):
+class SubmitHandler(SocketServer.BaseRequestHandler):
 
     def handle(self):
         self.request.send("please send us your team ip\n")
@@ -39,8 +39,8 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 def submitserver(port):
     HOST, PORT = "0.0.0.0", port
 
-    # Create the server, binding to localhost on port 9999
-    server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
+    # Create the server, binding to localhost
+    server = SocketServer.TCPServer((HOST, PORT), SubmitHandler)
     print "Starting submit server on port " + str(PORT) + "\n"
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C

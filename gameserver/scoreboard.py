@@ -2,7 +2,7 @@
 import SocketServer
 import os
 
-class MyTCPHandler(SocketServer.BaseRequestHandler):
+class ScoreboardHandler(SocketServer.BaseRequestHandler):
     """
     The RequestHandler class for our server.
 
@@ -37,7 +37,7 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
 def scoreboard(PORT):
     HOST= "0.0.0.0"
     # Create the server, binding to localhost on port 9999
-    server = SocketServer.TCPServer((HOST, PORT), MyTCPHandler)
+    server = SocketServer.TCPServer((HOST, PORT), ScoreboardHandler)
     print "scoreboard started on port " + str(PORT) + "\n"
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
