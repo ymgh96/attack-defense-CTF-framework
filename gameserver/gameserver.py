@@ -37,7 +37,6 @@ def randomString(n):
 
 
 def updateDefencePoints(teams):
-    global team
     print "updating def points"
     for team in teams:
         ff = open(team + "My.flag", "r")
@@ -55,7 +54,6 @@ def updateDefencePoints(teams):
 
 
 def PlaceTrolololFlags(teams):
-    global team
     for team in teams:
         # only run when a team is not disabled
         if not str(team).__contains__('d'):
