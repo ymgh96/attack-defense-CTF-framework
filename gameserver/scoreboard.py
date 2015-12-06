@@ -18,17 +18,19 @@ class ScoreboardHandler(SocketServer.BaseRequestHandler):
        for team in fo.readlines():
            teams.append(team[:-1])
        for team in teams:
-           if os.path.isfile(team+".def"):
+            deff = 0
+            off = 0
+            if os.path.isfile(team+".def"):
                ff = open(team+".def", "r")
                deff=ff.readline().count('+');
                deffminus = ff.readline().count('-')
                deff -= deffminus
-               ff.close();
-           if os.path.isfile(team+".off"):
+               ff.close()
+            if os.path.isfile(team+".off"):
                ff = open(team+".off", "r")
                off=ff.readline().count('+')
                ff.close()
-               self.request.send(team+" | "+str(off)+" | "+str(deff)+"\n")
+            self.request.send(team+" | "+str(off)+" | "+str(deff)+"\n")
            
 
 def scoreboard(PORT):
