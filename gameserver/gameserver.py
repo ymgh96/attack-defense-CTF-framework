@@ -57,20 +57,25 @@ def updateDefencePoints(teams):
 def PlaceTrolololFlags(teams):
     global team
     for team in teams:
-        print team
-        m = hashlib.md5()
-        m.update(randomString(100))
-        flag = m.hexdigest()
-        trololol_put.trololol_put(team, flag)
-        for otherteam in teams:
-            if otherteam != team:
-                ff = open(otherteam + ".flag", "a")
-                ff.write(flag + "\n")
-                ff.close()
-            else:
-                ff = open(otherteam + "My.flag", "a")
-                ff.write(flag + "\n")
-                ff.close()
+        # only run when a team is not disabled
+        if not str(team).__contains__('d'):
+            # create a flag and place it on the server
+            m = hashlib.md5()
+            m.update(randomString(100))
+            flag = m.hexdigest()
+            trololol_put.trololol_put(team, flag)
+            # each team has a file like 192.168.56.104.flag which contains the enemy's flags.
+            # every team also has a file like 192.168.56.104My.flag which contains their own flags.
+            for opponent in teams:
+                if not str(opponent).__contains__('d'):
+                    if opponent != team:
+                        ff = open(opponent + ".flag", "a")
+                        ff.write(flag + "\n")
+                        ff.close()
+                    else:
+                        ff = open(opponent + "My.flag", "a")
+                        ff.write(flag + "\n")
+                        ff.close()
 
 
 def read_team_files(teams):
@@ -107,14 +112,20 @@ def check_teams_online(teams):
                 teams.remove(ip)
                 print "[MESSAGE] " + ip + " removed from active team list"
             else:
-                # TODO: Actualy disable the team
                 print "[MESSAGE] " + ip + " disabled"
+                teams[teams.index(ip)] = ip + "d"
+
 
 def write_team_files(teams):
     for team in teams:
-        ff = open(team + "My.flag", "a")
-        ff.close();
-        print "[MESSAGE] Added " + team + " succesfully!"
+        if not str(team).__contains__('d'):
+            eteamf = open("enabled_teams.list", "a")
+            eteamf.write(team + "\n")
+            eteamf.close()
+            ff = open(team + "My.flag", "a")
+            ff.close();
+            print "[MESSAGE] Added " + team + " succesfully!"
+
 
 def start_server_threads():
     """

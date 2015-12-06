@@ -12,15 +12,12 @@ class ScoreboardHandler(SocketServer.BaseRequestHandler):
     """
 
     def handle(self):
-       fo = open("teams.list", "r")
-       self.request.send("team     |off|def\n")
+       fo = open("enabled_teams.list", "r")
+       self.request.send("team      | off | def \n")
        teams=[]
        for team in fo.readlines():
            teams.append(team[:-1])
-       print teams
        for team in teams:
-           off=0
-           deff=0
            if os.path.isfile(team+".def"):
                ff = open(team+".def", "r")
                deff=ff.readline().count('+');
@@ -31,7 +28,7 @@ class ScoreboardHandler(SocketServer.BaseRequestHandler):
                ff = open(team+".off", "r")
                off=ff.readline().count('+')
                ff.close()
-               self.request.send(team+"|"+str(off)+"|"+str(deff)+"\n")
+               self.request.send(team+" | "+str(off)+" | "+str(deff)+"\n")
            
 
 def scoreboard(PORT):
