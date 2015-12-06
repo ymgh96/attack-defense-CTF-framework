@@ -1,6 +1,6 @@
 #!/usr/bin/env python 
 import SocketServer
-
+import os
 class SubmitHandler(SocketServer.BaseRequestHandler):
 
     def handle(self):
@@ -17,16 +17,17 @@ class SubmitHandler(SocketServer.BaseRequestHandler):
         ff.close()
 
         if flag in flags:
-
-            sff = open(team+".found","r")
-            foundFlags = sff.readlines()
+            foundFlags = []
+            if os.path.isfile(team+".found"):
+                sff = open(team+".found","r")
+                foundFlags = sff.readlines()
+                sff.close()
 
             if flag in foundFlags:
                 print "Already scored on flag!"
             else:
                 # Write flag in teams found flag file
-                sff.close()
-                sff = open(team+".found","a")
+                sff = open(team+".found","w")
                 sff.write(flag+"\n")
                 sff.close()
                 # Add a score
